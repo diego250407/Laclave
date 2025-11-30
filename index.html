@@ -1,0 +1,1128 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Clave - Hamburguesas & Salchipapas Artesanales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+         
+        :root {
+            --primary: #ff4d00;
+            --primary-dark: #e64500;
+            --primary-light: #ff6a33;
+            --black: #000000;
+            --white: #ffffff;
+            --gray-50: #f8f9fa;
+            --gray-100: #f1f3f4;
+            --gray-200: #e8eaed;
+            --gray-800: #1a1a1a;
+            --whatsapp: #25D366;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        
+        .header {
+            background: linear-gradient(135deg, var(--black), var(--primary-dark));
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--white);
+            object-fit: cover;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .tagline {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .contact-header {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+         
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            transition: background-image 1.2s ease-in-out;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(255,77,0,0.2));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: var(--primary);
+            background: linear-gradient(45deg, var(--primary), #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+ 
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .cta-button.primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .cta-button.primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .cta-button.outline {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .cta-button.outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .button-icon {
+            font-size: 1.2rem;
+        }
+
+         
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .emoji {
+            font-size: 2rem;
+        }
+
+         
+        .menu-section {
+            background: var(--gray-50);
+        }
+
+        .menu-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+        }
+
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .menu-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .item-description {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .menu-actions {
+            text-align: center;
+        }
+
+         
+        .process-section {
+            background: var(--white);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .step-description {
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+         
+        .info-section {
+            background: var(--gray-50);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .info-description {
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        
+        .contact-section {
+            background: linear-gradient(135deg, var(--black), var(--primary-dark));
+            color: var(--white);
+        }
+
+        .contact-section .section-title,
+        .contact-section .section-subtitle {
+            color: var(--white);
+        }
+
+        .contact-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-button.whatsapp {
+            background: var(--whatsapp);
+            color: var(--white);
+        }
+
+        .contact-button.phone {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .contact-button.location {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .order-tips {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--radius);
+            max-width: 600px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .tips-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .tips-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .tip-item {
+            padding: 0.5rem 0;
+            color: var(--white);
+            opacity: 0.9;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .tip-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+         
+        .footer {
+            background: var(--gray-800);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .footer-contact {
+            text-align: right;
+        }
+
+        .footer-text {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+ 
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-header {
+                justify-content: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-contact {
+                text-align: center;
+            }
+            
+            .hero-actions,
+            .contact-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button,
+            .contact-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .menu-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="laclave.png" alt="La Clave Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1 class="logo-title">La Clave</h1>
+                        <p class="tagline">llama la salsa</p>
+                    </div>
+                </div>
+                <div class="contact-header">
+                    <div class="contact-info">
+                        <span class="contact-item">📞 3219573237</span>
+                        <span class="contact-item">🕓 Jueves a Lunes 4PM-10PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">La Clave <span class="highlight">llama la salsa</span></h2>
+                <p class="hero-description">
+                    Descubre nuestras deliciosas hamburguesas y salchipapas artesanales. 
+                    Preparadas con los mejores ingredientes y mucho amor. 
+                    Pregunta por nuestra carne al barril (Solo fines de semana)
+                </p>
+                <div class="hero-actions">
+                    <a href="#menu" class="cta-button primary">
+                        <span class="button-icon">📋</span>
+                        Ver Menú Completo
+                    </a>
+                    <a href="https://maps.app.goo.gl/5s5nWHkyWCVCUKXs7" target="_blank" class="cta-button secondary">
+                        <span class="button-icon">📍</span>
+                        ¿Dónde estamos?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+
+    <section id="menu" class="section menu-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestro Menú <span class="emoji">🍽️</span></h2>
+                <p class="section-subtitle">Delicias artesanales preparadas con los mejores ingredientes</p>
+            </div>
+            
+            <div class="menu-categories">
+              
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3 class="category-title">
+                            <span class="category-icon">🍔</span>
+                            Hamburguesas
+                        </h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Amor y Control</h4>
+                                    <p class="item-description">Pan artesanal, Carne artesanal, queso fundido, tocineta, cebolla y piña caramelizada, chorizo casero</p>
+                                </div>
+                                <span class="item-price">$21.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Trampolín</h4>
+                                    <p class="item-description">Pan artesanal, Carne artesanal, Cebolla con piña caramelizada, queso, tocineta y papas a la francesa</p>
+                                </div>
+                                <span class="item-price">$17.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Idilio</h4>
+                                    <p class="item-description">Menú infantil con mini hamburguesa, jugo y sorpresa</p>
+                                </div>
+                                <span class="item-price">$14.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3 class="category-title">
+                            <span class="category-icon">🍟</span>
+                            Salchipapas
+                        </h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Señora Ley</h4>
+                                    <p class="item-description">Chorizo casero, queso fundido, papa a la francesa, Carne desmechada, Tocineta, salchicha premiun, chicharron</p>
+                                </div>
+                                <span class="item-price">$92.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Sobredosis de amor</h4>
+                                    <p class="item-description">Chorizo casero, queso fundido, papa a la francesa, Carne desmechada, Tocineta, salchicha premiun, chicharron</p>
+                                </div>
+                                <span class="item-price">$75.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Asia</h4>
+                                    <p class="item-description">Papa a la francesa, salchicha premium, chorizo artesanal, queso fundido, Carne desmechada, Tocineta</p>
+                                </div>
+                                <span class="item-price">$30.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Escarcha</h4>
+                                    <p class="item-description">Chorizo casero, queso fundido, papa a la francesa, Carne desmechada, salchicha premiun</p>
+                                </div>
+                                <span class="item-price">$15.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Carbonerito</h4>
+                                    <p class="item-description">Cajita sorpresa para niños con mini salchipapa, jugo y juguete</p>
+                                </div>
+                                <span class="item-price">$14.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Gitana</h4>
+                                    <p class="item-description">Papa a la francesa, salchicha premium, chorizo artesanal</p>
+                                </div>
+                                <span class="item-price">$10.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3 class="category-title">
+                            <span class="category-icon">⭐</span>
+                            Menu especial
+                        </h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Vivir mi vida</h4>
+                                    <p class="item-description">Carne y chicharron al barril con papa al vapor y aji</p>
+                                </div>
+                                <span class="item-price">$18.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Echao pa lante</h4>
+                                    <p class="item-description">Chicharron al barril, arroz mixto, papa a la francesa</p>
+                                </div>
+                                <span class="item-price">$16.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Guayacan (Picada)</h4>
+                                    <p class="item-description">Chorizo casero, carne, chicharron, salchicha premiun, papa a la francesa, papa al vapor, maduro y arepa</p>
+                                </div>
+                                <span class="item-price">$15.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Siempre sere</h4>
+                                    <p class="item-description">Arroz mixto y papas a la francesa</p>
+                                </div>
+                                <span class="item-price">$12.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+     
+            <div class="section-header" style="margin-top: 4rem;">
+                <h2 class="section-title">Bebidas <span class="emoji">🥤</span></h2>
+                <p class="section-subtitle">Refréscate con nuestras deliciosas bebidas</p>
+            </div>
+            
+            <div class="menu-categories">
+                 
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3 class="category-title">
+                            <span class="category-icon">🥤</span>
+                            Bebidas 
+                        </h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Coca Cola 1.5L</h4>
+                                  
+                                </div>
+                                <span class="item-price">$7.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Postobón Litro</h4>
+                                    
+                                </div>
+                                <span class="item-price">$5.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Hit Litro</h4>
+                                   
+                                </div>
+                                <span class="item-price">$5.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Gaseosa Postobón Personal</h4>
+                              
+                                </div>
+                                <span class="item-price">$4.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Jugo Hit Personal</h4>
+                                    
+                                </div>
+                                <span class="item-price">$4.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Coca Cola Personal</h4>
+                                    
+                                </div>
+                                <span class="item-price">$4.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Pony Malta Personal</h4>
+                                  
+                                </div>
+                                <span class="item-price">$3.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Agua</h4>
+                                    
+                                </div>
+                                <span class="item-price">$2.000</span>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h4 class="item-name">Hit Caja</h4>
+                                    
+                                </div>
+                                <span class="item-price">$2.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-actions">
+                <a href="https://drive.google.com/file/d/1Lb1yfRKLe1qhiX5eRWHYfLJVZfvZoWeW/view?usp=sharing" 
+                 
+                   target="_blank" class="cta-button outline">
+                    <span class="button-icon">📄</span>
+                    Ver Menú Completo en PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="section process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Cómo Pedir? <span class="emoji">🚀</span></h2>
+                <p class="section-subtitle">Sigue estos simples pasos para disfrutar de nuestras delicias</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Elige tu favorito</h3>
+                        <p class="step-description">Revisa nuestro menú y selecciona lo que más te guste</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Contáctanos</h3>
+                        <p class="step-description">Escoge tu método preferido para hacer el pedido</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Disfruta</h3>
+                        <p class="step-description">Recibe tu pedido en casa o ven a recogerlo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     
+    <section class="section info-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Información Importante <span class="emoji">ℹ️</span></h2>
+                <p class="section-subtitle">Todo lo que necesitas saber antes de tu pedido</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🕓</div>
+                    <div class="info-content">
+                        <h3 class="info-title">Horario</h3>
+                        <p class="info-description">Jueves a Lunes<br>4:00 PM - 10:00 PM</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🚗</div>
+                    <div class="info-content">
+                        <h3 class="info-title">Domicilios</h3>
+                        <p class="info-description">Servicio a sector urbano (San Francisco)<br>25-35 min de espera</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">💳</div>
+                    <div class="info-content">
+                        <h3 class="info-title">Métodos de Pago</h3>
+                        <p class="info-description">Efectivo<br>Transferencia Nequi</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🏠</div>
+                    <div class="info-content">
+                        <h3 class="info-title">Recoger en Local</h3>
+                        <p class="info-description">20-30 min de preparación<br>Te avisamos cuando esté listo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¡Haz tu Pedido! <span class="emoji">📞</span></h2>
+                <p class="section-subtitle">Escoge tu método preferido de contacto</p>
+            </div>
+            
+            <div class="contact-actions">
+                <a href="https://wa.me/573219573237?text=¡Hola!%20Quiero%20hacer%20un%20pedido%20🍔" 
+                   class="contact-button whatsapp" target="_blank">
+                    <span class="contact-icon">📱</span>
+                    <span class="contact-text">Pedir por WhatsApp</span>
+                </a>
+                
+                <a href="tel:3219573237" class="contact-button phone">
+                    <span class="contact-icon">📞</span>
+                    <span class="contact-text">Llamar por Teléfono</span>
+                </a>
+
+                <a href="https://maps.app.goo.gl/5s5nWHkyWCVCUKXs7" target="_blank" class="contact-button location">
+                    <span class="contact-icon">📍</span>
+                    <span class="contact-text">Ver Ubicación</span>
+                </a>
+            </div>
+
+            <div class="order-tips">
+                <h4 class="tips-title">💡 Para agilizar tu pedido:</h4>
+                <ul class="tips-list">
+                    <li class="tip-item">Tu nombre completo</li>
+                    <li class="tip-item">Número de teléfono</li>
+                    <li class="tip-item">Dirección (si es domicilio)</li>
+                    <li class="tip-item">Método de pago preferido</li>
+                    <li class="tip-item">Ubicados frente al parque de los fundadores</li>
+                    <li class="tip-item">Icopor: $1.000 adicional</li>
+                    <li class="tip-item">Domicilio: $2.000 adicional</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+   
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="laclave.png" alt="La Clave Logo" class="logo-img">
+                        <div class="logo-text">
+                            <h3 class="footer-title">La Clave</h3>
+                            <p class="footer-tagline">llama la salsa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-contact">
+                        <p class="footer-text">📞 3219573237</p>
+                        <p class="footer-text">🕓 Jueves a Lunes 4PM-10PM</p>
+                        <p class="footer-text">🚗 Domicilios Disponibles</p>
+                        <p class="footer-text">📦 Icopor: $1.000 adicional</p>
+                        <p class="footer-text">🏠 Domicilio: $2.000 adicional</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 La Clave. Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+       
+        const images = [
+            'url("fotos/foto1.jpg")',
+            'url("fotos/foto2.jpg")',
+            'url("fotos/foto3.jpg")',
+            'url("fotos/foto4.jpg")',
+            'url("fotos/foto5.jpg")'
+        ];
+
+        const heroSection = document.getElementById('hero-section');
+        let currentImageIndex = 0;
+
+        function changeBackgroundImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            heroSection.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), ${images[currentImageIndex]}`;
+        }
+
+    
+        setInterval(changeBackgroundImage, 2500);
+
+         
+        changeBackgroundImage();
+
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
